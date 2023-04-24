@@ -30,7 +30,7 @@ categories:
 - Java虚拟机栈：每个方法的执行与完成都是一个栈帧从压栈到出栈的过程。栈帧包含：局部变量表、操作数栈、动态链接、方法出口等信息。其中的局部变量表包含基本数据类型、对象引用、returnAddress。
 - 本地方法栈：为虚拟机使用本地方法服务。
 
-![](http://image.tool4.fun/Java内存区域与内存溢出异常/20230425013336453.png)
+![](https://kanhaiblog-1315198027.cos.ap-shanghai.myqcloud.com/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.png)
 
 
 ### 由所有线程共享的数据区：
@@ -77,7 +77,7 @@ categories:
 
 注意：如果是数组，还要记录数组长度。
 
-![](http://image.tool4.fun/Java内存区域与内存溢出异常/20230425013407424.png)
+![](https://kanhaiblog-1315198027.cos.ap-shanghai.myqcloud.com/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/20230425013407424.png)
 
 ### 对象的访问定位：
 
@@ -87,7 +87,7 @@ categories:
   - 优点：垃圾收集后移动对象，此时reference无需修改，只要修改句柄的实例数据指针。
 - 如果使用直接指针访问的话，Java堆中对象的内存布局就必须考虑如何放置访问类型数据的相关 信息，reference中存储的直接就是对象地址，如果只是访问对象本身的话，就不需要多一次间接访问的开销
   - 优点：速度快，只需一次指针定位。
-![](http://image.tool4.fun/Java内存区域与内存溢出异常/20230425013425517.png)
+![](https://kanhaiblog-1315198027.cos.ap-shanghai.myqcloud.com/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/20230425013425517.png)
 
 ## 实战OOM
 
