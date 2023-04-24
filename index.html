@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-25 01:36:35" itemprop="dateModified" datetime="2023-04-25T01:36:35+08:00">2023-04-25</time>
+                <time title="修改时间：2023-04-25 01:45:07" itemprop="dateModified" datetime="2023-04-25T01:45:07+08:00">2023-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -368,7 +368,12 @@
 <li>1.8的hotspot虚拟机中，方法区通过元空间，在直接内存中实现，而运行时常量池在java堆中。</li>
 </ul>
 <p><strong>注意String.intern方法</strong>：1.6会把首次遇到的字符串实例复制到永久代的字符串常量池 中存储，返回的也是永久代里面这个字符串实例的引用；1.7之后，既然字符串常量池已经移到Java堆中，那只需要在常量池里记录一下首次出现的实例引用即可。</p>
-<p><strong>问题： 1.8中的元空间会垃圾回收吗？</strong><code>&lt;br /&gt;</code>答案：会。这里需要引出元空间的4个参数。<code>&lt;br /&gt;</code>·-XX：MetaspaceSize：指定元空间的初始空间大小，以字节为单位，达到该值就会触发垃圾收集 进行类型卸载，同时收集器会对该值进行调整：如果释放了大量的空间，就适当降低该值；如果释放 了很少的空间，那么在不超过-XX：MaxMetaspaceSize（如果设置了的话）的情况下，适当提高该值。<code>&lt;br /&gt;</code>·-XX：MaxMetaspaceSize：设置元空间最大值，默认是-1，即不限制，或者说只受限于本地内存 大小。<code>&lt;br /&gt;</code>·-XX：MinMetaspaceFreeRatio：作用是在垃圾收集之后控制最小的元空间剩余容量的百分比，可 减少因为元空间不足导致的垃圾收集的频率。类似的还有-XX：Max-MetaspaceFreeRatio，用于控制最大的元空间剩余容量的百分比。</p>
+<p><strong>问题： 1.8中的元空间会垃圾回收吗？</strong><br>答案：会。这里需要引出元空间的4个参数。</p>
+<ul>
+<li>-XX：MetaspaceSize：指定元空间的初始空间大小，以字节为单位，达到该值就会触发垃圾收集 进行类型卸载，同时收集器会对该值进行调整：如果释放了大量的空间，就适当降低该值；如果释放 了很少的空间，那么在不超过-XX：MaxMetaspaceSize（如果设置了的话）的情况下，适当提高该值。</li>
+<li>-XX：MaxMetaspaceSize：设置元空间最大值，默认是-1，即不限制，或者说只受限于本地内存 大小。</li>
+<li>-XX：MinMetaspaceFreeRatio：作用是在垃圾收集之后控制最小的元空间剩余容量的百分比，可能减少因为元空间不足导致的垃圾收集的频率。类似的还有-XX：Max-MetaspaceFreeRatio，用于控制最大的元空间剩余容量的百分比。</li>
+</ul>
 
       
     </div>
@@ -556,16 +561,6 @@
 </div>
 
 
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="http://kanhai.top/" title="http:&#x2F;&#x2F;kanhai.top">Title</a>
-        </li>
-    </ul>
-  </div>
 
       </div>
 
