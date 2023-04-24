@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 听海
 subtitle: ''
-description: ''
+description: '尽人事 听天命'
 keywords:
-author: John Doe
-language: en
+author: ting hai
+language: zh-CN
 timezone: ''
 
 # URL
@@ -97,12 +97,35 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
+
+#scheme: Muse
+#scheme: Mist
+#scheme: Pisces
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/wanmudong/wanmudong.github.io.git
-  branch: main
+  repo: https://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@github.com/wanmudong/wanmudong.github.io.git
+  branch: master
 
+
+# search
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+
+# symbols_count_time:
+#   symbols: true
+#   time: true
+#   total_symbols: true
+#   total_time: true
+#   exclude_codeblock: false
+#   awl: 4
+#   wpm: 275
+#   suffix: "mins."
