@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: http://kanhai.top
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -118,6 +118,11 @@ search:
   field: post
   format: html
   limit: 10000
+
+toc:
+  enable: true
+  # Automatically add list number to toc.
+  number: true
 
 
 # symbols_count_time:
