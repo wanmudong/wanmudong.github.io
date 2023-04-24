@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-25 01:45:07" itemprop="dateModified" datetime="2023-04-25T01:45:07+08:00">2023-04-25</time>
+                <time title="修改时间：2023-04-25 02:22:47" itemprop="dateModified" datetime="2023-04-25T02:22:47+08:00">2023-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -286,7 +286,7 @@
 <li>Java虚拟机栈：每个方法的执行与完成都是一个栈帧从压栈到出栈的过程。栈帧包含：局部变量表、操作数栈、动态链接、方法出口等信息。其中的局部变量表包含基本数据类型、对象引用、returnAddress。</li>
 <li>本地方法栈：为虚拟机使用本地方法服务。</li>
 </ul>
-<p><img src="http://image.tool4.fun/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/20230425013336453.png"></p>
+<p><img src="https://kanhaiblog-1315198027.cos.ap-shanghai.myqcloud.com/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.png"></p>
 <h3 id="由所有线程共享的数据区："><a href="#由所有线程共享的数据区：" class="headerlink" title="由所有线程共享的数据区："></a>由所有线程共享的数据区：</h3><ul>
 <li>java堆：此内存区域唯一的目的就是存放对象实例与数组。几乎所有的对象都在这里分配，但在逃逸分析技术下通过栈上分配与标量替换，会让对象在栈上进行分配。注意堆在虚拟机规范中理论上仅分为普通堆与TLAB（每个线程私有的分配缓冲区）。</li>
 <li>方法区：又称非堆。用于存储类型信息、常量、静态变量、即使编译器编译后的代码缓存等数据。<ul>
@@ -328,7 +328,7 @@
 <li>对齐填充</li>
 </ol>
 <p>注意：如果是数组，还要记录数组长度。</p>
-<p><img src="http://image.tool4.fun/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/20230425013407424.png"></p>
+<p><img src="https://kanhaiblog-1315198027.cos.ap-shanghai.myqcloud.com/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/20230425013407424.png"></p>
 <h3 id="对象的访问定位："><a href="#对象的访问定位：" class="headerlink" title="对象的访问定位："></a>对象的访问定位：</h3><blockquote>
 <p>hotspot使用直接指针定位</p>
 </blockquote>
@@ -338,7 +338,7 @@
 </ul>
 </li>
 <li>如果使用直接指针访问的话，Java堆中对象的内存布局就必须考虑如何放置访问类型数据的相关 信息，reference中存储的直接就是对象地址，如果只是访问对象本身的话，就不需要多一次间接访问的开销<ul>
-<li>优点：速度快，只需一次指针定位。<br><img src="http://image.tool4.fun/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/20230425013425517.png"></li>
+<li>优点：速度快，只需一次指针定位。<br><img src="https://kanhaiblog-1315198027.cos.ap-shanghai.myqcloud.com/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/20230425013425517.png"></li>
 </ul>
 </li>
 </ul>
