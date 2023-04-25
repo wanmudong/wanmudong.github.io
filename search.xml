@@ -4,8 +4,9 @@
     <title>Java内存区域与内存溢出异常</title>
     <url>/2023/04/24/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/</url>
     <content><![CDATA[<blockquote>
-<p>本文源于《深入理解Java虚拟机：JVM高级特性与最佳实践（第3版）》<br> 回答了自动内存管理的几个问题：</p>
+<p>本文源于《深入理解Java虚拟机：JVM高级特性与最佳实践（第3版）》</p>
 </blockquote>
+<p>回答了自动内存管理的几个问题：</p>
 <ol>
 <li>内存是如何分布的？<ol>
 <li>宏观的java虚拟机的运行时数据区</li>
