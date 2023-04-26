@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>开篇</title>
+    <url>/2023/04/23/%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<!-- 标签别名 -->
+
+<blockquote class="blockquote-center">
+            <i class="fa fa-quote-left"></i>
+            <p>世上只有一种英雄主义，就是认清生活的真相之后依然热爱生活。 test1 </p>
+
+            <i class="fa fa-quote-right"></i>
+          </blockquote>
+]]></content>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java内存区域与内存溢出异常</title>
     <url>/2023/04/24/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/</url>
     <content><![CDATA[<blockquote>
@@ -493,20 +509,6 @@
       <tags>
         <tag>技术</tag>
         <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>开篇</title>
-    <url>/2023/04/23/%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<!-- 标签别名 -->
-<blockquote class="blockquote-center">
-            <i class="fa fa-quote-left"></i>
-            <p>世上只有一种英雄主义，就是认清生活的真相之后依然热爱生活。  </p>
-
-            <i class="fa fa-quote-right"></i>
-          </blockquote>]]></content>
-      <tags>
-        <tag>生活</tag>
       </tags>
   </entry>
 </search>
