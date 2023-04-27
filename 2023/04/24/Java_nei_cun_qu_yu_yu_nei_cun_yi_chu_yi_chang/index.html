@@ -24,7 +24,7 @@
   <meta name="description" content="本文源于《深入理解Java虚拟机：JVM高级特性与最佳实践（第3版）》  回答了自动内存管理的几个问题：  内存是如何分布的？ 宏观的java虚拟机的运行时数据区 微观的hotspot虚拟机的对象   为什么要这么分布？从内存分布以及各个区域oom的场景，我们可以窥见这么分布的好处。（模块化，各司其职）  运行时数据区 宏观上java虚拟机的内存分布  线程隔离的数据区： 程序计数器：作为程序控">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java内存区域与内存溢出异常">
-<meta property="og:url" content="http://kanhai.top/2023/04/24/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/index.html">
+<meta property="og:url" content="http://kanhai.top/2023/04/24/Java_nei_cun_qu_yu_yu_nei_cun_yi_chu_yi_chang/index.html">
 <meta property="og:site_name" content="听海">
 <meta property="og:description" content="本文源于《深入理解Java虚拟机：JVM高级特性与最佳实践（第3版）》  回答了自动内存管理的几个问题：  内存是如何分布的？ 宏观的java虚拟机的运行时数据区 微观的hotspot虚拟机的对象   为什么要这么分布？从内存分布以及各个区域oom的场景，我们可以窥见这么分布的好处。（模块化，各司其职）  运行时数据区 宏观上java虚拟机的内存分布  线程隔离的数据区： 程序计数器：作为程序控">
 <meta property="og:locale" content="zh_CN">
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://kanhaiblog-1315198027.cos.ap-shanghai.myqcloud.com/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.png">
 
-<link rel="canonical" href="http://kanhai.top/2023/04/24/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/">
+<link rel="canonical" href="http://kanhai.top/2023/04/24/Java_nei_cun_qu_yu_yu_nei_cun_yi_chu_yi_chang/">
 
 
 <script id="page-configurations">
@@ -205,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kanhai.top/2023/04/24/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/">
+    <link itemprop="mainEntityOfPage" href="http://kanhai.top/2023/04/24/Java_nei_cun_qu_yu_yu_nei_cun_yi_chu_yi_chang/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/me.jpg">
@@ -410,11 +410,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/04/23/%E5%BC%80%E7%AF%87/" rel="prev" title="开篇">
+    <a href="/2023/04/23/kai_pian/" rel="prev" title="开篇">
       <i class="fa fa-chevron-left"></i> 开篇
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/04/25/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5/" rel="next" title="垃圾收集器与内存分配策略">
+    <a href="/2023/04/25/la_ji_shou_ji_qi_yu_nei_cun_fen_pei_ce_lue/" rel="next" title="垃圾收集器与内存分配策略">
       垃圾收集器与内存分配策略 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
