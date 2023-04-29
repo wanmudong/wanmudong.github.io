@@ -1,21 +1,41 @@
 name: deploying Hexo project to GitHub pages
+
 on:
   push:
     branches:
-      - hexo # master 分支有 push 行为时就触发这个 action
+      - hexo
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-18.04
+    if: github.event.repository.owner.id == github.event.sender.id
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
+      - name: Checkout source
+        uses: actions/checkout@v2
+        with:
+          ref: master
 
-      - name: Build and Deploy
-        uses: theme-keep/hexo-deploy-github-pages-action@master # 使用专门部署 Hexo 到 GitHub pages 的 action
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+
+      - name: Setup Hexo
         env:
-          PERSONAL_TOKEN: ${{ secrets.action }} # secret 名
-          PUBLISH_REPOSITORY: wanmudong/wanmudong.github.io # 公共仓库，格式：GitHub 用户名/仓库名
-          BRANCH: master # 分支，填 gh-pages 就行
-          PUBLISH_DIR: ./public # 部署 public 目录下的文件
+          ACTION_DEPLOY_KEY: ${{ secrets.action }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git config --global user.email "wanmudong@qq.com"
+          git config --global user.name "wanmudong"
+          npm install hexo-cli -g
+          npm install
 
+      - name: Deploy
+        run: |
+          hexo clean
+          hexo deploy
