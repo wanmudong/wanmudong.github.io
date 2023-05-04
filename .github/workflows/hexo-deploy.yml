@@ -1,44 +1,40 @@
-name:  hexo deploy
-on:
-  push:
-    branches:
-      - hexo
-jobs:
-  build:
-    runs-on: ubuntu-16.04
+# 设置workflow 名称
+name: Deploy Blog
 
+# 触发条件
+on: 
+  push:
+    branches: 
+      - hexo
+# 任务
+jobs:
+  build: # 一项叫做build的任务
+
+    runs-on: ubuntu-16.04 # 在最新版的Ubuntu系统下运行
+    if: github.event.repository.owner.id == github.event.sender.id
     steps:
-      ## 检出master分支
-      - name: Checkout source
-        uses: actions/checkout@v1
-        with:
-           submodules: true
-           # 如果想要检出其它分支，可以加上下面这句话
-           # ref:分支名
-      - name: Use Node.js 
-        uses: actions/setup-node@v1
-        with:
-          version:  "10.x"
-       ## 设置ssh
-      - name: Setup ssh
-        env:
-          ## 这里${{var}}中的名称就是上面github网站配置私钥中变量名
-          ACTION_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_PRI }}
-        run: |
-          mkdir -p ~/.ssh/
-          echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          git config --global user.email "wanmudong@qq.com"
-          git config --global user.name "wanmudong"
-    #设置hexo环境
-     - name:  Setup hexo
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: |
-          npm install hexo-cli -g
-          npm install
-     # 部署
-    - name: Hexo deploy
-        run: |
-          hexo clean
-          hexo d
+    - name: Checkout # 将仓库内master分支的内容下载到工作目录
+      uses: actions/checkout@v1 # 脚本来自 https://github.com/actions/checkout
+      with:
+        submodules: true
+    ## 配置node
+    - name: Use Node.js 10.x # 配置Node环境
+      uses: actions/setup-node@v1 # 配置脚本来自 https://github.com/actions/setup-node
+      id: cache
+      with:
+        node-version: "10.x"
+    ## 安装依赖
+    - name: Install Dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: |
+        npm i -g hexo-cli # 安装hexo
+        npm i
+   # Deploy hexo blog website.
+    - name: Deploy
+      id: deploy
+      uses: sma11black/hexo-action@v1.0.2
+      with:
+        deploy_key: ${{ secrets.action }}
+        user_name: wanmudong  # (or delete this input setting to use bot account)
+        user_email: wanmudong@qq.com  # (or delete this input setting to use bot account)
+        commit_msg: ${{ github.event.head_commit.message }}  # (or delete this input setting to use hexo default settings)
