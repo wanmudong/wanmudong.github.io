@@ -15,7 +15,7 @@ jobs:
     # 工作流步骤
     steps:
     - name: Checkout repository master branch
-      uses: actions/checkout@hexo
+      uses: actions/checkout@master
 
     # 安装Node.js
     - name: Install node.js
