@@ -1,38 +1,54 @@
-name: Pages
+# 工作流名称
+name: Hexo Blog Deploy
 
+# 只在push到master分支的时候启动
 on:
   push:
     branches:
-      - hexo  # default branch
+      - hexo
 
-
-
+# 使用ubuntu虚拟机
 jobs:
-  build: # job1 id
-    runs-on: ubuntu-latest # 运行环境为最新版 Ubuntu
-    name: A job to deploy blog.
+  build:
+    runs-on: ubuntu-latest
+
+    # 工作流步骤
     steps:
-    - name: Checkout # step1 获取源码
-      uses: actions/checkout@v1 # 使用 actions/checkout@v1
-      with: # 条件
-        submodules: true # Checkout private submodules(themes or something else). 当有子模块时切换分支？
-    # Caching dependencies to speed up workflows. (GitHub will remove any cache entries that have not been accessed in over 7 days.) 缓存压缩 node_modules，不用每次下载，使用时解压，可以加快工作流的执行过程，超过 7 天没有使用将删除压缩包。
-    - name: Cache node modules # step2
-      uses: actions/cache@v1
-      id: cache
+    - name: Checkout repository master branch
+      uses: actions/checkout@hexo
+
+    # 安装Node.js
+    - name: Install node.js
+      uses: actions/setup-node@master
       with:
-        path: node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - name: Install Dependencies # step3 name
-      if: steps.cache.outputs.cache-hit != 'true' # 如果变量 cache-hit 不等于 true
-      run: npm install # 安装 node modules 相关依赖
-    # Deploy hexo blog website.
-    - name: Deploy # step4
-      id: deploy
-      uses: sma11black/hexo-action@v1.0.0
-      with:
-        deploy_key: ${{ secrets.action }}
-        user_name: wanmudong
-        user_email: wanmudong@qq.com
+        node-version: "16.x"
+
+    # 安装Hexo
+    - name: Install hexo
+      run: |
+        npm install hexo-cli -g
+        npm install
+
+    # 设置SSH密钥，读取HEXO_DEPLOY_KEY
+    - name: Setup private key
+      env:
+        HEXO_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_KEY }}
+      run: |
+        mkdir -p ~/.ssh/
+        echo "$HEXO_DEPLOY_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+    # 配置Git设置
+    - name: Setup git settings
+      run: |
+        git config --global user.name "GitHub用户名"
+        git config --global user.email "GitHub邮箱"
+    # 更改上面的用户名和邮箱
+
+    # 部署
+    - name: Deploy hexo
+      run: |
+        hexo clean
+        hexo generate
+        hexo deploy
