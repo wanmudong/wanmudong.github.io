@@ -28,7 +28,11 @@ jobs:
       run: |
         npm install hexo-cli -g
         npm install
+   
+    - name: Install hexo theme next
+      run: |
         npm install hexo-theme-next
+
 
     # 设置SSH密钥，读取HEXO_DEPLOY_KEY
     - name: Setup private key
