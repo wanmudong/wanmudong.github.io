@@ -31,6 +31,7 @@ jobs:
    
     - name: Install hexo theme next
       run: |
+        npm uninstall hexo-theme-next
         npm install hexo-theme-next
 
 
